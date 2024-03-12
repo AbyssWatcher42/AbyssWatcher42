@@ -1,0 +1,96 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Data_Types.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nayasundae <marvin@42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/12 14:10:53 by nayasundae        #+#    #+#              #
+#    Updated: 2024/03/12 19:45:24 by stsmeyer         ###   ########.fr        #
+#                                                                              #
+#                                                                              # 
+#     NOTES :                                                                  #
+# 									       #
+#		> "u" stands for 	"Usually"			       #
+#		> "l" stands for 	"Least / Minimum"		       #
+#		> "m" stands for 	"Maximum"			       #
+#		> "dd" stands for 	"decimal digits"		       #
+
+
+
+# **************************************************************************** #
+
+ALL DATA TYPES
+
+[Primitive DATA TYPES]
+
+-char				1 Byte | 8 bits | Range -128 to 127 | %c |
+>store a single character / small interger
+
+-signed char			1 Byte | 8 bits | Range -128 to 127 | %c | %hhi |
+>%hhi for numerical output
+
+-unsigned char			1 Byte | 8 bits | Range 0 to 255    | %c | %hhu |
+>only positive range %hhu for numerical output
+
+-int				u4 l2 Byte | u32 l16 bits | Range -32,768 to 32,767 | %d | %i  |
+
+-short				   u2 Byte |      16 bits | Range -32,768 to 32,767 | %d | %hd | 
+
+-long				u8 l4 Byte | u64 l32 bits | Range -2,147,483,647 to 2,147,483,647 | %d | %ld | %li |
+
+-long long			   l8 Byte |      64 bits | Range -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | %lld | %lli |
+ 
+-(signed & unsigned)			%u | %hu | %lu | %llu |
+
+-float				4 Byte | 32 bits | dd 6-7 | Range 1.2E-38 to 3.4E+38 (7 digits) | %f | %F |
+
+-double				8 Byte | 64 bits | dd 15-16 | Range 2.2E-308 to 1.8E+308 | %lf | %LF |
+
+-long double			u16 u12 l10 Byte | u80 bits | dd 18-19+ | Range 3.4E-4932 to 1.1E+4932  | %Lf | %LF |
+
+-void
+
+-const
+>declare that it should not be modified after initialized
+
+[DATA TYPE MODIFIERS]  ( SHORT | LONG | SIGNED | UNSIGNED )
+>cant be use with FLOAT
+>LONG is allowed with DOUBLE
+
+-(signed & unsigned)                    %u | %hu | %lu | %llu |
+
+-short                             u2 Byte |      16 bits | Range -32,768 to 32,767 | %d | %hd |
+
+-long                           u8 l4 Byte | u64 l32 bits | Range -2,147,483,647 to 2,147,483,647 | %d | %ld | %li |
+
+-signed
+>negative & positive value (char & int is signed by default)
+
+-unsigned
+>non-negative value including 0
+
+
+(C99)<stdbool.h>
+-bool
+
+
+[Derieved DATA TYPE]
+
+-Arrays
+-Pointers
+-Structures
+-Union
+-Function Type
+
+
+[C99 fixed width interger in <inttypes.h>]
+
+Exact-Width 			(int32_t)
+Minimum-Width 			(int_least8_t)
+Fastest Minimum 		(int_fast8_t)
+Pointer_holding types 		(intptr_t)
+Max-Width 			(intmax_t)
+
+
+

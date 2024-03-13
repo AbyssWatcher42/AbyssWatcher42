@@ -6,7 +6,7 @@
 #    By: nayasundae <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 14:10:53 by nayasundae        #+#    #+#              #
-#    Updated: 2024/03/12 19:45:24 by stsmeyer         ###   ########.fr        #
+#    Updated: 2024/03/13 19:04:04 by stsmeyer         ###   ########.fr        #
 #                                                                              #
 #                                                                              # 
 #     NOTES :                                                                  #
@@ -15,23 +15,30 @@
 #		> "l" stands for 	"Least / Minimum"		       #
 #		> "m" stands for 	"Maximum"			       #
 #		> "dd" stands for 	"decimal digits"		       #
-
+#		> "#" is a seperator					       #
+#		> "$" subtopic within seperator				       #
 
 
 # **************************************************************************** #
 
-ALL DATA TYPES
+###########################################################
+{{ALL DATA TYPES}}
 
-[Primitive DATA TYPES]
+> Basic DATA TYPE
+> Derived DATA TYPE
+> User-Defined DATA TYPE
+
+###########################################################
+++[Basic DATA TYPES]++
 
 -char				1 Byte | 8 bits | Range -128 to 127 | %c |
->store a single character / small interger
+> store a single character / small interger
 
 -signed char			1 Byte | 8 bits | Range -128 to 127 | %c | %hhi |
->%hhi for numerical output
+> %hhi for numerical output
 
 -unsigned char			1 Byte | 8 bits | Range 0 to 255    | %c | %hhu |
->only positive range %hhu for numerical output
+> only positive range %hhu for numerical output
 
 -int				u4 l2 Byte | u32 l16 bits | Range -32,768 to 32,767 | %d | %i  |
 
@@ -52,11 +59,12 @@ ALL DATA TYPES
 -void
 
 -const
->declare that it should not be modified after initialized
+> declare that it should not be modified after initialized
 
-[DATA TYPE MODIFIERS]  ( SHORT | LONG | SIGNED | UNSIGNED )
->cant be use with FLOAT
->LONG is allowed with DOUBLE
+###########################################################
+++[DATA TYPE MODIFIERS]++  ( SHORT | LONG | SIGNED | UNSIGNED )
+> cant be use with FLOAT
+> LONG is allowed with DOUBLE
 
 -(signed & unsigned)                    %u | %hu | %lu | %llu |
 
@@ -65,26 +73,33 @@ ALL DATA TYPES
 -long                           u8 l4 Byte | u64 l32 bits | Range -2,147,483,647 to 2,147,483,647 | %d | %ld | %li |
 
 -signed
->negative & positive value (char & int is signed by default)
+> negative & positive value (char & int is signed by default)
 
 -unsigned
->non-negative value including 0
+> non-negative value including 0
 
-
+###########################################################
+++[BOOLEAN]++
 (C99)<stdbool.h>
 -bool
 
-
-[Derieved DATA TYPE]
+###########################################################
+++[Derieved DATA TYPE]++
+> more explaination later
 
 -Arrays
 -Pointers
+
+###########################################################
+++[User-Defined DATA TYPE]++
+> more explaination later
+
 -Structures
 -Union
 -Function Type
 
-
-[C99 fixed width interger in <inttypes.h>]
+###########################################################
+++{*}++[C99 fixed width interger in <inttypes.h>]
 
 Exact-Width 			(int32_t)
 Minimum-Width 			(int_least8_t)
@@ -92,5 +107,221 @@ Fastest Minimum 		(int_fast8_t)
 Pointer_holding types 		(intptr_t)
 Max-Width 			(intmax_t)
 
+###########################################################
+++[OPERATORS]++
 
+> Arithmetic
+(  +  -  *  /  %  )
 
+> Relational
+(  <  >  <=  >=  ==  !=  )
+
+> Bitwise
+(  &  ^  |  <<  >>  ~  )
+
+> Logical
+(  &&  ||  !  )
+
+> Conditional
+(  ?  :  )
+
+> Assignement
+(  =  +=  -=  <<=  )
+
+> Miscellaneous
+(  sizeof()  &  *  ->  )
+
+###########################################################
+++[ARRAYS]++
+> fixed-sized homogeneous collection of item stored at continguous memory location.
+> can contain element from type int, char, float, structure, etc. to even other arrays.
+
+	(x) provide random access using the element index.
+	(x) size cannot change.
+	(x) can have multiple dimesions in which can grow.
+
+SYNTAX
+||data_type arr_name [size1];			   1D Array
+||data_type arr_name [size1][size2];		  2D Array
+||data_type arr_name [size1][size2][size3];	 3D Array
+
+###########################################################
+++[STRINGS]++
+> sequence of characters terminated by '0\' (NULL CHARACTER).
+> stored as array of characters in C.
+
+SYNTAX
+|| char	string_name[] = "texts_here";
+
+++[ <string.h> ]++
+>lib functions for string manipulation
+
+SYNTAX/FUNCTIONS
+|| strlen() | strcmp() | strcpy() | strcat() | strchr() | strstr() |
+
+###########################################################
+++[POINTERS]++
+> variable that STORE THE ADDRESS of ANOTHER variable.
+> can point to any DATA TYPE in C
+> can be DEREFERENCE using * operator
+
+TYPES OF POINTERS
+|
+|-DOUBLE 	pointer
+|-FUNCTION 	pointer
+|-STRUCTURE 	pointer
+|-NULL 		pointer
+|-DANGLING 	pointer
+|-WILD 		pointer
+
+###########################################################
+++[DYNAMIC MEMORY MANAGEMENT]++
+> Allocate memory at program's runtime
+
+++[ <stdlib.h> ]++
+
+SYNTAX/FUNCTIONS
+|| malloc() | calloc() | realloc() | free() |
+|
+|
+|-- malloc(size_t size)
+|
+|  > malloc allocates the BLOCKS OF SPECIFIC SIZE in the memory. it return the void pointer to the memory block.
+|  > if allocation failed, it return NULL pointer.
+|
+|
+|-- calloc(size_t num, size_t size)
+|
+|  > calloc allocate the NUMBER OF BLOCKS of the specified size in memory. it return the void pointer to the memory block.
+|  > if allocation is failed, it return NULL pointer.
+|
+|
+|-- realloc(void *ptr, size_t new_size)
+|
+|  > realloc is used to change the size of the already allocated memory.
+|  > it also returns the void pointer to the allocated memory.
+|
+|
+|-- free(ptr)
+|
+| > used to deallocate the already allocated memory
+
+###########################################################
+++[STRUCTURE]++
+> user-defined data type that can contain items of different types as it members.
+
+###########################################################
+++[UNION]++
+> user-defined data type that can contain elements of different types. 
+> unlike struct, union stores its member in a shared memory location rather than having separate memory for each member.
+
+###########################################################
+++[ENUMERATION]++
+> enum is a user-defined data type that use to assign some name to the intergal constant.
+> By default, enum members are assigned values starting from 0.
+> it can be assign values manually
+
+###########################################################
+++[PREPROCESSOR DIRECTIVE]++
+>provide instructions to preprocessor that expands the code before compilation.
+
+SYNTAX/PREPROCESSOR DIRECTIVE
+||
+|
+|
+|-- #define
+|
+|  > used to define macro
+|
+|
+|-- #undef
+|
+|  > used to undefine a macro
+|
+|
+|-- #include
+|
+|  > used to include a file in the source code program
+|
+|
+|-- #ifdef
+|
+|  > used to include a section of code if a certain macro is defined by #define
+|
+|
+|-- #endif 
+|
+|  > used to mark the end of #endif
+|
+|
+|-- #ifndef
+|
+|  > used to include a section of code if a certain macro is not defined by #define
+|
+|
+|-- #if
+|
+|  > check for the specified condition
+|
+|
+|-- #else
+|
+|  > alternate code that executes when #if fails
+|
+|
+|-- #pragma
+|
+|  > this directive is a special purpose directive and is used to turn on or off some features.
+
+###########################################################
+++[CONTROL STRUCTURES]++
+
+++[CONDITIONAL]++
+
+IF STATEMENTS
+||
+|
+|-- if()
+|
+|-- else if()
+|
+|-- else
+
+SWITCH CASE
+||
+|
+|-- switch()
+|
+|-- case
+|
+|-- default
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+++[LOOPS]++
+
+FOR LOOPS
+||
+|
+|-- for()
+
+WHILE LOOPS
+||
+|
+|-- while()
+
+DO-WHILE LOOP
+||
+|
+|-- do{}while()
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+++[JUMPS]++
+||
+|
+|-- break;
+|
+|-- continue;
+|
+|-- goto;
+
+###########################################################

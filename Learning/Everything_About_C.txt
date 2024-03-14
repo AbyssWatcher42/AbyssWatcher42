@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Data_Types.txt                                     :+:      :+:    :+:    #
+#    Everything_About_C.txt                             :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nayasundae <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 14:10:53 by nayasundae        #+#    #+#              #
-#    Updated: 2024/03/13 19:04:04 by stsmeyer         ###   ########.fr        #
+#    Updated: 2024/03/14 16:56:47 by stsmeyer         ###   ########.fr        #
 #                                                                              #
 #                                                                              # 
 #     NOTES :                                                                  #
@@ -17,8 +17,15 @@
 #		> "dd" stands for 	"decimal digits"		       #
 #		> "#" is a seperator					       #
 #		> "$" subtopic within seperator				       #
+#									       #
+#		> "@((@"						       #
+#		   @  @							       #
+#		   @))@ is a sandbox area which can be use for various reason  #
 
 
+
+
+#									       #		
 # **************************************************************************** #
 
 ###########################################################
@@ -27,6 +34,7 @@
 > Basic DATA TYPE
 > Derived DATA TYPE
 > User-Defined DATA TYPE
+
 
 ###########################################################
 ++[Basic DATA TYPES]++
@@ -61,6 +69,7 @@
 -const
 > declare that it should not be modified after initialized
 
+
 ###########################################################
 ++[DATA TYPE MODIFIERS]++  ( SHORT | LONG | SIGNED | UNSIGNED )
 > cant be use with FLOAT
@@ -78,10 +87,12 @@
 -unsigned
 > non-negative value including 0
 
+
 ###########################################################
 ++[BOOLEAN]++
 (C99)<stdbool.h>
 -bool
+
 
 ###########################################################
 ++[Derieved DATA TYPE]++
@@ -90,13 +101,16 @@
 -Arrays
 -Pointers
 
+
 ###########################################################
 ++[User-Defined DATA TYPE]++
 > more explaination later
 
 -Structures
 -Union
+-Enumerations
 -Function Type
+
 
 ###########################################################
 ++{*}++[C99 fixed width interger in <inttypes.h>]
@@ -106,6 +120,7 @@ Minimum-Width 			(int_least8_t)
 Fastest Minimum 		(int_fast8_t)
 Pointer_holding types 		(intptr_t)
 Max-Width 			(intmax_t)
+
 
 ###########################################################
 ++[OPERATORS]++
@@ -131,10 +146,12 @@ Max-Width 			(intmax_t)
 > Miscellaneous
 (  sizeof()  &  *  ->  )
 
+
 ###########################################################
 ++[ARRAYS]++
 > fixed-sized homogeneous collection of item stored at continguous memory location.
 > can contain element from type int, char, float, structure, etc. to even other arrays.
+> for dealing with group-related data
 
 	(x) provide random access using the element index.
 	(x) size cannot change.
@@ -145,19 +162,65 @@ SYNTAX
 ||data_type arr_name [size1][size2];		  2D Array
 ||data_type arr_name [size1][size2][size3];	 3D Array
 
+1D Array
+@(((((((((((((((((((((((((((((((((((((((((((((((((((((((((@
+@							  @
+@#include <stdio.h>					  @
+@							  @
+@/*							  @
+@	index: | 0 | 1 | 2 | 3 | 4 |			  @
+@							  @
+@	grade: |34 |45 |70 |75 |90 |			  @
+@*/							  @
+@							  @
+@int	main(void)					  @
+@{							  @
+@	int i;						  @
+@	int total;					  @
+@	int grade[] = {34, 45, 70, 75, 90};		  @
+@							  @
+@	i = 0;						  @
+@	total = 0;					  @
+@/*	grade[0] = 34;					  @
+@	grade[1] = 45;					  @
+@	grade[2] = 70;					  @
+@	grade[3] = 75;					  @
+@	grade[4] = 90;					  @
+@*/							  @
+@	printf(%d\n, grade[2]);				  @
+@							  @
+@	while (i < 5)					  @
+@	{						  @
+@		printf("grade[%d]=%d\n", i, grade[i]);	  @
+@		i++;					  @
+@	}						  @
+@	while (i < 5)					  @
+@	{						  @
+@		total += grade[i];			  @
+@		i++;					  @
+@		printf("average: %d\n", total/5);	  @
+@	}						  @
+@}							  @
+@							  @
+@)))))))))))))))))))))))))))))))))))))))))))))))))))))))))@
+
+
 ###########################################################
 ++[STRINGS]++
-> sequence of characters terminated by '0\' (NULL CHARACTER).
+> sequence of characters terminated by '0\' (NULL TERMINATOR). which is a non-printable
 > stored as array of characters in C.
+> char array.
+>format specifier is "%s"
 
 SYNTAX
 || char	string_name[] = "texts_here";
 
 ++[ <string.h> ]++
->lib functions for string manipulation
+@>lib functions for string manipulation
 
 SYNTAX/FUNCTIONS
 || strlen() | strcmp() | strcpy() | strcat() | strchr() | strstr() |
+
 
 ###########################################################
 ++[POINTERS]++
@@ -173,6 +236,7 @@ TYPES OF POINTERS
 |-NULL 		pointer
 |-DANGLING 	pointer
 |-WILD 		pointer
+
 
 ###########################################################
 ++[DYNAMIC MEMORY MANAGEMENT]++
@@ -206,20 +270,24 @@ SYNTAX/FUNCTIONS
 |
 | > used to deallocate the already allocated memory
 
+
 ###########################################################
 ++[STRUCTURE]++
 > user-defined data type that can contain items of different types as it members.
+
 
 ###########################################################
 ++[UNION]++
 > user-defined data type that can contain elements of different types. 
 > unlike struct, union stores its member in a shared memory location rather than having separate memory for each member.
 
+
 ###########################################################
 ++[ENUMERATION]++
 > enum is a user-defined data type that use to assign some name to the intergal constant.
 > By default, enum members are assigned values starting from 0.
 > it can be assign values manually
+
 
 ###########################################################
 ++[PREPROCESSOR DIRECTIVE]++
@@ -273,6 +341,7 @@ SYNTAX/PREPROCESSOR DIRECTIVE
 |
 |  > this directive is a special purpose directive and is used to turn on or off some features.
 
+
 ###########################################################
 ++[CONTROL STRUCTURES]++
 
@@ -296,6 +365,7 @@ SWITCH CASE
 |
 |-- default
 
+
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ++[LOOPS]++
 
@@ -314,6 +384,7 @@ DO-WHILE LOOP
 |
 |-- do{}while()
 
+
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ++[JUMPS]++
 ||
@@ -323,5 +394,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 |-- continue;
 |
 |-- goto;
+
 
 ###########################################################

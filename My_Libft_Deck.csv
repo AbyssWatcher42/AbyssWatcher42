@@ -1,0 +1,43 @@
+<ctype.h>,Int    isalpha (int   c),return non-zero value if it’s a alphabet character. (65-90 / 97-112)
+<ctype.h>,int    isdigit (int   c),return non-zero value if it’s a numeric character. (48-57)
+<ctype.h>,int    isalnum (int   c),Return non-zero value if it’s a alphanumeric. (48-57 / 65-90 / 97-112)
+<ctype.h>,int    isascii (int   c),return non-zero value if it’s within ASCII table. (0-127)
+<ctype.h>,int    isprint (int   c),return non-zero value if it’s printables. (32-126)
+<ctype.h>,int    toupper (int c),Convert to uppercase and return. (-32)
+<ctype.h>,int    tolower (int  c),convert to lowercase and return. (+32)
+<string.h>,size_t    strlen (const char   *s),return length of string before NUL-terminator. (‘\0’)
+<string.h>,"void    *memset(void   *s, int   c, size_t   n)  ;",write ‘n’ byte of ‘c’ to the string b then return first argument.
+<string.h>,"Void    bzero(void   *s, size_t   n);",Write ‘n’ bytes of NUL to the string.
+<string.h>,"Void    *memcpy(void   *dest, const void   *src, size_t   n);",Copy ‘n’ byte from *src to *dest. (can cause overlap)
+<string.h>,"void    *memmove(void   *dest, const void   *src, size_t   n);",Copy ‘n’ byte from *src to temporary array to *dest. (prevent overlapping)
+<string.h>,"size_t    strlcpy(char   *dst, const char   *src, size_t   size);",Copy ‘size’  from *src to *dst and NUL-terminated the last character in *dst. And return length of *src. (prevent buffer overflow)
+<string.h>,"size_t    strlcat(char   *dst, const char   *src, size_t   size);",Concatenate *src to *dst and NUL-terminated the end of *dst. And return length of dst + src. (prevent buffer overflow)
+<string.h>,"Char    *strchr(const char   *s, int   c);","Search for first occurrence of ‘c’ in string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
+<string.h>,"Char    *strrchr(const char   *s, int   c);","Search for last occurrence of ‘c’ in string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
+<string.h>,"Int    strncmp(const char   *s1, const char   *s2, size_t   n);",
+<string.h>,"void    *memchr(const void   *s, int   c, size_t   n);",
+<string.h>,"Int    memcmp(const void   *s1, const void   *s2, size_t   n);",
+<string.h>,"char    *strnstr(const char   *big, const char   *little, size_t   len);",
+<stdlib.h>,int    atoi(const char   *nptr),
+<stdlib.h>,"void    *calloc(size_t   nmemb, size_t   size);",
+<stdlib.h>,Char    *strdup(const char   *s),
+Non-standard,"Char    *ft_substr(char const   *s, unsigned int   start, size_t   len);",
+Non-standard,"Char    *ft_strjoin(char const   *s1, char const   *s2);",
+Non-standard,"char    *ft_strtrim(char const   *s1, char const   *set);",
+Non-standard,"char    **ft_split(char const   *s, char   c);",
+Non-standard,char    *ft_itoa(int   c),
+Non-standard,"char    *ft_strmapi(char const   *s, char   (*f)(unsigned  int, char));",
+Non-standard,"void    ft_striteri(char   *s, void   (*f)(unsigned int, char));",
+Non-standard,"Void    ft_putchar_fd(char   c, int   fd);",
+Non-standard,"void    ft_putstr_fd(char   *s, int   fd);",
+Non-standard,"void    ft_putendl_fd(char   *s, int   fd);",
+Non-standard,"void    ft_putnbr_fd(int   n, int   fd);",
+Linked list,t_list    *ft_lstnew(void   *content),
+Linked list,"Void    ft_lstadd_front(t_list   **lst, t_list   *new);",
+Linked list,int    ft_lstsize(t_list   *lst),
+Linked list,t_list    *ft_lstlast(t_list   *lst),
+Linked list,"Void    ft_lstadd_back(t_list   **lst, t_list   *new);",
+Linked list,"void    ft_lstdelone(t_list   *lst, void   (*del)(void *));",
+Linked list,"void    ft_lstclear(t_list   **lst, void   (*del)(void *));",
+Linked list,"void    ft_lstiter(t_list   *lst, void   (*f)(void *));",
+Linked list,"t_list    *ft_lstmap(t_list   *lst, void   *(*f)(void *), void   (*del)(void *));",

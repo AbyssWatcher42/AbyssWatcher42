@@ -6,18 +6,18 @@
 <ctype.h>,int    toupper (int c),Convert to uppercase and return. (-32)
 <ctype.h>,int    tolower (int  c),convert to lowercase and return. (+32)
 <string.h>,size_t    strlen (const char   *s),return length of string before NUL-terminator. (‘\0’)
-<string.h>,"void    *memset(void   *s, int   c, size_t   n)  ;",write ‘n’ byte of ‘c’ to the string b then return first argument.
+<string.h>,"void    *memset(void   *s, int   c, size_t   n)  ;",write ‘n’ byte of ‘c’ to the string *s then return first argument.
 <string.h>,"Void    bzero(void   *s, size_t   n);",Write ‘n’ bytes of NUL to the string.
 <string.h>,"Void    *memcpy(void   *dest, const void   *src, size_t   n);",Copy ‘n’ byte from *src to *dest. (can cause overlap)
 <string.h>,"void    *memmove(void   *dest, const void   *src, size_t   n);",Copy ‘n’ byte from *src to temporary array to *dest. (prevent overlapping)
 <string.h>,"size_t    strlcpy(char   *dst, const char   *src, size_t   size);",Copy ‘size’  from *src to *dst and NUL-terminated the last character in *dst. And return length of *src. (prevent buffer overflow)
 <string.h>,"size_t    strlcat(char   *dst, const char   *src, size_t   size);",Concatenate *src to *dst and NUL-terminated the end of *dst. And return length of dst + src. (prevent buffer overflow)
-<string.h>,"Char    *strchr(const char   *s, int   c);","Search for first occurrence of ‘c’ in string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
-<string.h>,"Char    *strrchr(const char   *s, int   c);","Search for last occurrence of ‘c’ in string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
-<string.h>,"Int    strncmp(const char   *s1, const char   *s2, size_t   n);",
-<string.h>,"void    *memchr(const void   *s, int   c, size_t   n);",
-<string.h>,"Int    memcmp(const void   *s1, const void   *s2, size_t   n);",
-<string.h>,"char    *strnstr(const char   *big, const char   *little, size_t   len);",
+<string.h>,"Char    *strchr(const char   *s, int   c);","search for first occurrence of ‘c’ in literal string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
+<string.h>,"Char    *strrchr(const char   *s, int   c);","Search for last occurrence of ‘c’ in literal string pointed to by *s. NUL-terminate included. If not found, return NULL. (int c internally convert to char c)"
+<string.h>,"Int    strncmp(const char   *s1, const char   *s2, size_t   n);","Compares *s1 with *s2 literal strings not more than ‘n’ value in a lexicographic order corresponding to ASCII values. Return *s1 greater than, equal to, or less than *s2."
+<string.h>,"void    *memchr(const void   *s, int   c, size_t   n);",Locate the first occurrence of ‘c’ in *s byte string not more than ‘n' value. 
+<string.h>,"Int    memcmp(const void   *s1, const void   *s2, size_t   n);","Compares *s1 with *s2 byte strings not more than ‘n’ value. Returns 0 if identical, if *s2 first difference is greater than *s1 it will be negative. Vice versa."
+<string.h>,"char    *strnstr(const char   *big, const char   *little, size_t   len);",Search and locate the first occurrence of *little substring within *big string until NUL-terminated not more than ‘len’ value.
 <stdlib.h>,int    atoi(const char   *nptr),
 <stdlib.h>,"void    *calloc(size_t   nmemb, size_t   size);",
 <stdlib.h>,Char    *strdup(const char   *s),

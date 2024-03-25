@@ -20,8 +20,8 @@
 <string.h>,"char    *strnstr(const char   *big, const char   *little, size_t   len);",Search and locate the first occurrence of *little substring within *big string until NUL-terminated not more than ‘len’ value.
 <stdlib.h>,int    atoi(const char   *nptr),"Skips whitespace, checks the sign (-/+). iterate until non-digit character or end of string.  convert string of numbered character to integer. [result = result * 10 + (*nptr++ - '0');] and returns [result * sign]"
 <stdlib.h>,"void    *calloc(size_t   nmemb, size_t   size);","Allocate block of memory dynamically during runtime and write byte of NUL to each ‘nmemb’ blocks of memory, in sizeof ‘size’"
-<stdlib.h>,Char    *strdup(const char   *s),
-Non-standard,"Char    *ft_substr(char const   *s, unsigned int   start, size_t   len);",
+<stdlib.h>,Char    *strdup(const char   *s),"Create duplication of *s by char *result = Calloc(sizeof(char)), ft_strlen(s) + 1 for NUL-terminator. copy s to result and return result. "
+Non-standard,"Char    *ft_substr(char const   *s, unsigned int   start, size_t   len);",Extract a substring from *s that begins from ‘start’ and ‘len’ to be extracted. Return result.
 Non-standard,"Char    *ft_strjoin(char const   *s1, char const   *s2);",
 Non-standard,"char    *ft_strtrim(char const   *s1, char const   *set);",
 Non-standard,"char    **ft_split(char const   *s, char   c);",
